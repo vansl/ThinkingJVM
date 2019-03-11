@@ -2,6 +2,7 @@ package com.vansl.classpath;
 
 import com.vansl.util.IOUtil;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
@@ -23,12 +24,8 @@ public class ZipEntry implements Entry{
     }
 
     @Override
-    public byte[] readClass(String className) {
-        try {
-            return IOUtil.readZipClassFile(absPath,className);
-        } catch (Exception e) {
-        }
-        return null;
+    public byte[] readClass(String className) throws IOException, ClassNotFoundException {
+        return IOUtil.readZipClassFile(absPath,className);
     }
 
     @Override

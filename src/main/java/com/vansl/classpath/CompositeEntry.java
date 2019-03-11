@@ -1,5 +1,6 @@
 package com.vansl.classpath;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class CompositeEntry implements Entry{
     }
 
     @Override
-    public byte[] readClass(String className) {
+    public byte[] readClass(String className) throws IOException, ClassNotFoundException {
         byte[] result = null;
         for (Entry entry:subEntryList) {
             result = entry.readClass(className);
