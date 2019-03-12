@@ -1,6 +1,8 @@
 package com.vansl.classfile;
 
 
+import java.util.Arrays;
+
 /**
  * @description 封装字节码数组
  * @date 2019-03-12 13:48:02
@@ -56,11 +58,7 @@ public class ClassReader {
     }
 
     public byte[] readBytes(int n) {
-        byte[] bytes = new byte[n];
-
-        for (int i=0;i<n;i++) {
-            bytes[i] = data[index+i];
-        }
+        byte[] bytes = Arrays.copyOfRange(data,index,index+n);
         index += n;
         return bytes;
     }
