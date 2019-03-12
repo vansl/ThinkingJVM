@@ -34,12 +34,14 @@ public class MemberInfo {
                     classReader.readU2(),
                     AttributeInfo.readAttributes(classReader,constantPool)
             );
-            System.out.println(members[i].getMemberName());
         }
         return members;
     }
 
-    public String getMemberName() {
-        return constantPool.getUtf8(nameIndex);
+    @Override
+    public String toString() {
+        String memeberName = this.constantPool.getUtf8(nameIndex);
+        String memeberDescriptor = this.constantPool.getUtf8(descriptorIndex);
+        return memeberName+",desc:"+memeberDescriptor;
     }
 }

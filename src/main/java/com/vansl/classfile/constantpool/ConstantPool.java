@@ -18,7 +18,6 @@ public class ConstantPool {
         constantPool.constantInfos = new ConstantInfo[constantPoolCount];
         for (int i = 1; i < constantPoolCount; i++) {
             short tag = classReader.readU1();
-//            System.out.println(tag);
             ConstantInfo constantInfo = ConstantFactory.newConstant(tag, classReader);
             constantPool.constantInfos[i] = constantInfo;
             // long和double占两个索引
@@ -51,6 +50,10 @@ public class ConstantPool {
     public String getClassName(int index) {
         ConstantClassInfo classInfo = (ConstantClassInfo)constantInfos[index];
         return getUtf8(classInfo.getNameIndex());
+    }
+
+    public int getConstantPoolCount() {
+        return constantPoolCount;
     }
 }
 

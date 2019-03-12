@@ -1,11 +1,6 @@
 package com.vansl.classfile.constantpool;
 
 import com.vansl.classfile.ClassReader;
-import com.vansl.util.IOUtil;
-
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
 
 /**
  * @description 存放MUTF-8编码的字符串

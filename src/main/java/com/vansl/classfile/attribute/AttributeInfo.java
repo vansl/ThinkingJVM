@@ -18,7 +18,6 @@ public abstract class AttributeInfo {
         for(int i=0;i<attributesCount;i++) {
             int attrNameIndex = classReader.readU2();
             String attrName = constantPool.getUtf8(attrNameIndex);  // 属性名
-            System.out.println(attrName);
             long attrLen = classReader.readU4();                    // 属性长度
             AttributeInfo attributeInfo = AttributeFactory.newAttributeInfo(attrName,attrLen,classReader,constantPool);
             attributes[i] = attributeInfo;

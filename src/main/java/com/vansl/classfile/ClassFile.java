@@ -3,6 +3,9 @@ package com.vansl.classfile;
 import com.vansl.classfile.attribute.AttributeInfo;
 import com.vansl.classfile.constantpool.ConstantPool;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClassFile {
 
     private long magic;                 // 魔数
@@ -29,7 +32,6 @@ public class ClassFile {
         classFile.interfaces = classReader.readU2s();
         classFile.fields = MemberInfo.readMembers(classReader,classFile.constantPool);
         classFile.methods = MemberInfo.readMembers(classReader,classFile.constantPool);
-        System.out.println(classFile.methods[0].getMemberName());
         classFile.attributes = AttributeInfo.readAttributes(classReader,classFile.constantPool);
         return classFile;
     }
@@ -72,13 +74,6 @@ public class ClassFile {
         return accessFlags;
     }
 
-    public MemberInfo[] getFields() {
-        return fields;
-    }
-
-    public MemberInfo[] getMethods() {
-        return methods;
-    }
 
     /**
      * @description 获取类名
@@ -104,12 +99,31 @@ public class ClassFile {
      * @description 获取接口名
      * @date 2019-03-11 21:46:58
      **/
-    public String[] getInterfaceNames() {
-        String[] interfaceNames = new String[this.interfaces.length];
-        for (int i=0;i<interfaceNames.length;i++) {
-            interfaceNames[i] = constantPool.getClassName(this.interfaces[i]);
+    public List<String> getInterfaceNames() {
+        List<String> interfaceNames = new ArrayList<>(this.interfaces.length);
+        for (int i=0;i<this.interfaces.length;i++) {
+            interfaceNames.add(constantPool.getClassName(this.interfaces[i]));
         }
         return interfaceNames;
     }
 
+    /**
+     * @description 获取字段名
+     * @date 2019-03-12 14:30:41
+     **/
+    public List<String> getFieldNames() {
+        List<String> fieldNames = new ArrayList<>(this.fields.length);
+        for (int i=0;i<this.fields.length;i++) {
+            fieldNames.add(this.fields[i].toString());
+        }
+        return fieldNames;
+    }
+
+    public List<String> getMethodNames() {
+        List<String> methodNames = new ArrayList<>(this.methods.length);
+        for (int i=0;i<this.methods.length;i++) {
+            methodNames.add(methods[i].toString());
+        }
+        return methodNames;
+    }
 }

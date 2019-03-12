@@ -1,6 +1,10 @@
 package com.vansl.classfile;
 
 
+/**
+ * @description 封装字节码数组
+ * @date 2019-03-12 13:48:02
+ **/
 public class ClassReader {
 
     private byte[] data;
@@ -48,7 +52,6 @@ public class ClassReader {
         for (int i=0;i<size;i++) {
             result[i] = readU2();
         }
-        index += size;
         return result;
     }
 

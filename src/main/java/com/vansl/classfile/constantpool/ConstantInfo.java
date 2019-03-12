@@ -2,7 +2,6 @@ package com.vansl.classfile.constantpool;
 
 import com.vansl.classfile.ClassReader;
 
-import java.io.IOException;
 
 /**
  * @description 常量抽象类

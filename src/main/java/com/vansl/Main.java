@@ -2,7 +2,6 @@ package com.vansl;
 
 import com.beust.jcommander.JCommander;
 import com.vansl.classfile.ClassFile;
-import com.vansl.classfile.ClassReader;
 import com.vansl.classpath.Classpath;
 import com.vansl.command.Command;
 import com.vansl.util.IOUtil;
@@ -49,7 +48,6 @@ public class Main {
             System.exit(1);
         }
         System.out.println(IOUtil.bytesToHex(classBytes));
-        ClassReader classReader = new ClassReader(classBytes);
         ClassFile classFile = loadClass(mainClassName,classpath);
         printClassInfo(classFile);
     }
@@ -66,9 +64,19 @@ public class Main {
     }
 
     public static void printClassInfo(ClassFile classFile) {
-        System.out.printf("version: %v.%v\n",
+        System.out.printf("version: %s.%s\n",
                 classFile.getMajorVersion(),
                 classFile.getMinorVersion()
         );
+        System.out.printf("constants count: %d\n",classFile.getConstantPool().getConstantPoolCount());
+        System.out.printf("this class: %s\n",classFile.getClassName());
+        System.out.printf("super class: %s\n",classFile.getSuperClassName());
+        System.out.printf("interfaces: %s\n",classFile.getInterfaceNames());
+        for(String field:classFile.getFieldNames()) {
+            System.out.println("field:"+field);;
+        }
+        for(String method:classFile.getMethodNames()) {
+            System.out.println("method:"+method);;
+        }
     }
 }

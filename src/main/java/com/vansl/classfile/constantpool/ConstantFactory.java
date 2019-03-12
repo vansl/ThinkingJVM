@@ -6,51 +6,47 @@ public class ConstantFactory {
 
     public static ConstantInfo newConstant(short tag,ClassReader classReader) {
         ConstantInfo constantInfo;
-        ConstantTag constantTag = ConstantTag.getByTag(tag);
-        if (constantTag==null) {
-            throw new Error("java.lang.ClassFormatError:constant tag");
-        }
-        switch (constantTag) {
-            case INTEGER:
+        switch (tag) {
+            case 3:
                 constantInfo = new ConstantIntegerInfo();
                 break;
-            case FLOAT:
+            case 4:
                 constantInfo = new ConstantFloatInfo();
                 break;
-            case LONG:
+            case 5:
                 constantInfo = new ConstantLongInfo();
                 break;
-            case DOUBLE:
+            case 6:
                 constantInfo = new ConstantDoubleInfo();
                 break;
-            case UTF8:
+            case 1:
                 constantInfo = new ConstantUtf8Info();
                 break;
-            case STRING:
+            case 8:
                 constantInfo = new ConstantStringInfo();
                 break;
-            case CLASS:
+            case 7:
                 constantInfo = new ConstantClassInfo();
                 break;
-            case FIELDREF:
+            case 9:
                 constantInfo = new ConstantFieldrefInfo();
                 break;
-            case METHODREF:
+            case 10:
                 constantInfo = new ConstantMethodrefInfo();
                 break;
-            case INTEFFACE_METHODREF:
+            case 11:
                 constantInfo = new ConstantInterfaceMethodrefInfo();
                 break;
-            case NAME_AND_TYPE:
+            case 12:
                 constantInfo = new ConstantNameAndTypeInfo();
                 break;
-            case METHOD_TYPE:
+            case 16:
                 constantInfo = new ConstantMethodTypeInfo();
                 break;
-            case METHOD_HANDLE:
+            case 15:
                 constantInfo = new ConstantMethodHandleInfo();
                 break;
-            case INVOKE_DYNAMIC:
+            case 18:
                 constantInfo = new ConstantInvokeDynamicInfo();
                 break;
             default:
