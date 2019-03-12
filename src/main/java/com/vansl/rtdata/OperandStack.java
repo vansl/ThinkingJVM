@@ -64,4 +64,13 @@ public class OperandStack {
     public void pushRef(Object object) {
         slots[size++].setRef(object);
     }
+
+    public Slot popSlot() {
+        size --;
+        return slots[size];
+    }
+
+    public void pushSlot(Slot slot) {
+        slots[size++] = slot;
+    }
 }

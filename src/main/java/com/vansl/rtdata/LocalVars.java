@@ -2,6 +2,7 @@ package com.vansl.rtdata;
 
 /**
  * @description 局部变量表,boolean、byte、short、char类型转为int处理
+ * 只存放数据的值，不存放数据类型，操作数栈同样也是
  * @date 2019-03-12 16:33:47
  **/
 public class LocalVars {
