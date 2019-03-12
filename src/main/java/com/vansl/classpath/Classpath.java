@@ -1,6 +1,7 @@
 package com.vansl.classpath;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 
 public class Classpath implements Entry{
@@ -59,7 +60,7 @@ public class Classpath implements Entry{
     }
 
     @Override
-    public byte[] readClass(String className) {
+    public byte[] readClass(String className) throws IOException, ClassNotFoundException {
         className = className + ".class";
         byte[] result;
         if ((result = bootClasspath.readClass(className))!=null) {

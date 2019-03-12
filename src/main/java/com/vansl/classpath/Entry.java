@@ -1,6 +1,7 @@
 package com.vansl.classpath;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * @description 类路径（启动类路径、扩展类路径和用户类路径等）
@@ -12,7 +13,7 @@ import java.io.File;
  **/
 public interface Entry {
 
-    // 路径分隔符
+    // 文件名分隔符
     String SEP = File.separator;
 
     // 系统路径分隔符
@@ -25,6 +26,6 @@ public interface Entry {
      * @param className class文件的相对路径
      * @return byte数组
      **/
-    byte[] readClass(String className);
+    byte[] readClass(String className) throws IOException, ClassNotFoundException;
 
 }

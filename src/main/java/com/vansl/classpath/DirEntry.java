@@ -3,6 +3,7 @@ package com.vansl.classpath;
 
 import com.vansl.util.IOUtil;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
@@ -24,13 +25,9 @@ public class DirEntry implements Entry {
     }
 
     @Override
-    public byte[] readClass(String className) {
-        try {
-            String fullPath = Paths.get(absPath,className).toString();
-            return IOUtil.readClassFile(fullPath);
-        } catch (Exception e) {
-        }
-        return null;
+    public byte[] readClass(String className) throws IOException {
+        String fullPath = Paths.get(absPath,className).toString();
+        return IOUtil.readClassFile(fullPath);
     }
 
     @Override
