@@ -12,6 +12,9 @@ import java.io.File;
  **/
 public interface Entry {
 
+    // 路径分隔符
+    String SEP = File.separator;
+
     // 系统路径分隔符
     String PATH_SEP = File.pathSeparator;
 
