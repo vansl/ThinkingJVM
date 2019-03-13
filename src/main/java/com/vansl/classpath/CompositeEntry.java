@@ -15,7 +15,7 @@ public class CompositeEntry implements Entry{
     public CompositeEntry(String pathList) {
         subEntryList = new ArrayList<>();
         for(String path:pathList.split(PATH_SEP)) {
-            subEntryList.add(EntryFactory.getEntry(path));
+            subEntryList.add(EntryFactory.newEntry(path));
         }
     }
 

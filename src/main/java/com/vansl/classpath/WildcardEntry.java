@@ -33,6 +33,9 @@ public class WildcardEntry implements Entry{
         for (Entry entry:subEntryList) {
             try {
                 result = entry.readClass(className);
+                if (result!=null) {
+                    return result;
+                }
             } catch (Exception e) {
             }
         }

@@ -22,10 +22,10 @@ class ExceptionTableEntry {
  * @description 变长属性，存放字节码等信息
  * @date 2019-03-10 19:42:50
  **/
-class CodeAttribute extends AttributeInfo {
+public class CodeAttribute extends AttributeInfo {
 
     private ConstantPool constantPool;
-    private int maxStack;                           // 栈的最大深度
+    private int maxStack;                           // 操作数栈栈的最大深度
     private int maxLocals;                          // 局部变量表大小
     private byte[] code;                            // 字节码
     private ExceptionTableEntry[] exceptionTable;   // 异常处理表
@@ -57,5 +57,17 @@ class CodeAttribute extends AttributeInfo {
             );
         }
         return exceptionTable;
+    }
+
+    public int getMaxStack() {
+        return maxStack;
+    }
+
+    public int getMaxLocals() {
+        return maxLocals;
+    }
+
+    public byte[] getCode() {
+        return code;
     }
 }

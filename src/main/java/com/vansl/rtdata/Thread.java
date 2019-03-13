@@ -19,11 +19,19 @@ public class Thread {
         stack.push(frame);
     }
 
-    public Frame popFrame(Frame frame) {
+    public Frame popFrame() {
         return stack.pop();
     }
 
     public Frame currentFrame() {
         return stack.top();
+    }
+
+    public int getPc() {
+        return pc;
+    }
+
+    public void setPc(int pc) {
+        this.pc = pc;
     }
 }

@@ -56,7 +56,7 @@ public class Classpath implements Entry{
         if (cpOption == null) {
             cpOption = ".";
         }
-        userClasspath = EntryFactory.getEntry(cpOption);
+        userClasspath = EntryFactory.newEntry(cpOption);
     }
 
     @Override

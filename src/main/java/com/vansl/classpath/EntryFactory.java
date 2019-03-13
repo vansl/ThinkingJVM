@@ -2,7 +2,7 @@ package com.vansl.classpath;
 
 public class EntryFactory {
 
-    public static Entry getEntry(String path) {
+    public static Entry newEntry(String path) {
         if (path.contains(Entry.PATH_SEP)) {
             return new CompositeEntry(path);
         }

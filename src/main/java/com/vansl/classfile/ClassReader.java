@@ -4,7 +4,7 @@ package com.vansl.classfile;
 import java.util.Arrays;
 
 /**
- * @description 封装字节码数组
+ * @description 封装class文件字节码数组
  * @date 2019-03-12 13:48:02
  **/
 public class ClassReader {

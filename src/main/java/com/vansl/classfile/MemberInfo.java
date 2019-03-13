@@ -1,6 +1,7 @@
 package com.vansl.classfile;
 
 import com.vansl.classfile.attribute.AttributeInfo;
+import com.vansl.classfile.attribute.CodeAttribute;
 import com.vansl.classfile.constantpool.ConstantPool;
 
 /**
@@ -43,5 +44,14 @@ public class MemberInfo {
         String memeberName = this.constantPool.getUtf8(nameIndex);
         String memeberDescriptor = this.constantPool.getUtf8(descriptorIndex);
         return memeberName+",desc:"+memeberDescriptor;
+    }
+
+    public CodeAttribute getCodeAttribute() {
+        for (AttributeInfo attributeInfo:attributes) {
+            if (attributeInfo instanceof CodeAttribute) {
+                return (CodeAttribute)attributeInfo;
+            }
+        }
+        return null;
     }
 }

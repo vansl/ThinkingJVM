@@ -2,6 +2,7 @@ package com.vansl.rtdata;
 
 /**
  * @description 局部变量表,boolean、byte、short、char类型转为int处理
+ * 只存放数据的值，不存放数据类型，操作数栈同样也是
  * @date 2019-03-12 16:33:47
  **/
 public class LocalVars {
@@ -57,5 +58,14 @@ public class LocalVars {
 
     public void setRef(int index,Object ref) {
         slots[index].setRef(ref);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Slot slot:slots) {
+            stringBuilder.append(slot.getNum()+" ");    // 只返回num
+        }
+        return stringBuilder.toString();
     }
 }

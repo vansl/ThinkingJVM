@@ -1,12 +1,11 @@
 package com.vansl.rtdata;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class OperandStackTest {
 
     @org.junit.jupiter.api.Test
     void testOperandStack() {
-        Frame frame = new Frame(100,100);
+        Frame frame = new Frame(new Thread(1024),100,100);
         OperandStack ops = frame.getOperandStack();
         ops.pushInt(100);
         ops.pushInt(-100);

@@ -10,7 +10,7 @@ public class IOUtil {
 
     public static String bytesToHex(byte[] bytes) {
         StringBuilder buf = new StringBuilder(bytes.length * 2);
-        for(byte b : bytes) {
+        for(short b : bytes) {
             buf.append(String.format("%02x",new Integer(b & 0xff)));
         }
         return buf.toString();
