@@ -20,7 +20,7 @@ public class LOOKUP_SWITCH implements Instruction {
     }
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         int key = frame.getOperandStack().popInt();
         for (int i=0;i<npairs*2;i+=2) {
             if (matchOffsets[i]==key) {

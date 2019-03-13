@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 
 public class IFLT extends BranchInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         int val = frame.getOperandStack().popInt();
         if (val<0) {
             BranchLogic.branch(frame,this.offset);

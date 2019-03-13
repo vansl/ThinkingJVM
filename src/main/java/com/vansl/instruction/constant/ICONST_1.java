@@ -5,7 +5,7 @@ import com.vansl.rtdata.Frame;
 
 public class ICONST_1 extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         frame.getOperandStack().pushInt(1);
     }
 }

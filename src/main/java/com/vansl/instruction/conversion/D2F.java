@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class D2F extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         double val = operandStack.popDouble();
         operandStack.pushFloat((float)val);

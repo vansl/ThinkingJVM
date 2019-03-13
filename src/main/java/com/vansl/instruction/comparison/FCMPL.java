@@ -7,7 +7,7 @@ import com.vansl.rtdata.OperandStack;
 public class FCMPL extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         FCMPG.fcmp(frame,false);
     }
 }

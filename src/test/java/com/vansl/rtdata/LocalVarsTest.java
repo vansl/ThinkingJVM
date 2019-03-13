@@ -1,13 +1,12 @@
 package com.vansl.rtdata;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class LocalVarsTest {
 
 
     @org.junit.jupiter.api.Test
     void testLocalVars() {
-        Frame frame = new Frame(100,100);
+        Frame frame = new Frame(new Thread(1024),100,100);
         LocalVars vars  = frame.getLocalVars();
         vars.setInt(0, 100);
         vars.setInt(1, -100);

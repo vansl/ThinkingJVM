@@ -5,7 +5,7 @@ import com.vansl.rtdata.Frame;
 
 public class FCONST_2 extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         frame.getOperandStack().pushFloat(2.0f);
     }
 }

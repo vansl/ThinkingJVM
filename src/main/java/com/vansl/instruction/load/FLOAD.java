@@ -11,7 +11,7 @@ public class FLOAD extends Index8Instruction {
         frame.getOperandStack().pushFloat(val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         fload(frame,this.index);
     }
 }

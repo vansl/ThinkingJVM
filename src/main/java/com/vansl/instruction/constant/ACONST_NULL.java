@@ -10,7 +10,7 @@ import com.vansl.rtdata.Frame;
 public class ACONST_NULL extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         frame.getOperandStack().pushRef(null);
     }
 }

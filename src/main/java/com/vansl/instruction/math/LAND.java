@@ -7,7 +7,7 @@ import com.vansl.rtdata.OperandStack;
 public class LAND extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         long v2 = operandStack.popLong();
         long v1 = operandStack.popLong();

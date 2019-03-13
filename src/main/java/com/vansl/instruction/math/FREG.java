@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class FREG extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         float v1 = operandStack.popFloat();
         operandStack.pushFloat(-v1);

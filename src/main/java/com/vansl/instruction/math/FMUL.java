@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class FMUL extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         float v2 = operandStack.popFloat();
         float v1 = operandStack.popFloat();

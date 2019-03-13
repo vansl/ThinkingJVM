@@ -12,7 +12,7 @@ public class ALOAD extends Index8Instruction {
         frame.getOperandStack().pushRef(ref);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         aload(frame,this.index);
     }
 }

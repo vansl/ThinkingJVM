@@ -11,7 +11,7 @@ public class ILOAD extends Index8Instruction {
         frame.getOperandStack().pushInt(val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         iload(frame,this.index);
     }
 }

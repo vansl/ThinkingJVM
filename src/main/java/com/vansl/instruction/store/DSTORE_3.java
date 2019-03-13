@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 public class DSTORE_3 extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         DSTORE.dstore(frame,3);
     }
 }

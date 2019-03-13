@@ -12,6 +12,7 @@ public class JVMStack {
     private Stack<Frame> stack;
 
     public JVMStack(int maxSize) {
+        this.maxSize = maxSize;
         stack = new Stack<>();
     }
 

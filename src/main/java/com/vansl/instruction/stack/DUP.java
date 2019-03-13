@@ -11,7 +11,7 @@ import com.vansl.rtdata.Slot;
  **/
 public class DUP extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         Slot slot = operandStack.popSlot();
         operandStack.pushSlot(slot);

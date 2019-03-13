@@ -11,7 +11,7 @@ import com.vansl.rtdata.Object;
  **/
 public class IF_ACMPNE extends BranchInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         Object val2 = frame.getOperandStack().popRef();
         Object val1 = frame.getOperandStack().popRef();
         if (val1!=val2) {

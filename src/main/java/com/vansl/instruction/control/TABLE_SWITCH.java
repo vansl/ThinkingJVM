@@ -27,7 +27,7 @@ public class TABLE_SWITCH implements Instruction {
     }
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         int index = frame.getOperandStack().popInt();
         int offset;
         if (index>=low && index<=high) {

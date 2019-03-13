@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 public class ALOAD_1 extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         ALOAD.aload(frame,1);
     }
 }

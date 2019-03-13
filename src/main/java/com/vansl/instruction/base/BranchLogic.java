@@ -9,6 +9,8 @@ import com.vansl.rtdata.Frame;
 public class BranchLogic {
 
     public static void branch(Frame frame, int offset) {
-        int pc = frame.
+        int pc = frame.getThread().getPc();
+        int nextPC = pc+offset;
+        frame.setNextPC(nextPC);
     }
 }

@@ -6,7 +6,7 @@ package com.vansl.instruction.base;
  **/
 public abstract class Index8Instruction implements Instruction {
 
-    public short index;      // 局部变量表索引
+    public int index;      // 局部变量表索引
 
     @Override
     public void fetchOperands(BytecodeReader bytecodeReader) {

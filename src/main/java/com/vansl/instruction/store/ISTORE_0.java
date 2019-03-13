@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 public class ISTORE_0 extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         ISTORE.istore(frame,0);
     }
 }

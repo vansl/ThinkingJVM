@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 public class DCMPL extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         DCMPG.fcmp(frame,false);
     }
 }

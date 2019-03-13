@@ -5,7 +5,7 @@ import com.vansl.rtdata.Frame;
 public interface Instruction {
 
     void fetchOperands(BytecodeReader bytecodeReader);
-    void Execute(Frame frame);
+    void execute(Frame frame);
 }
 
 

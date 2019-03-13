@@ -2,8 +2,10 @@ package com.vansl;
 
 import com.beust.jcommander.JCommander;
 import com.vansl.classfile.ClassFile;
+import com.vansl.classfile.MemberInfo;
 import com.vansl.classpath.Classpath;
 import com.vansl.command.Command;
+import com.vansl.interpreter.Interpreter;
 import com.vansl.util.IOUtil;
 
 import java.io.IOException;
@@ -47,9 +49,11 @@ public class Main {
             System.out.printf("Error: Could not find or load main class ",mainClassName);
             System.exit(1);
         }
-        System.out.println(IOUtil.bytesToHex(classBytes));
+//        System.out.println(IOUtil.bytesToHex(classBytes));
         ClassFile classFile = loadClass(mainClassName,classpath);
         printClassInfo(classFile);
+        MemberInfo mainMethod = getMainMehtod(classFile);
+        Interpreter.interpret(mainMethod);
     }
 
     public static ClassFile loadClass(String className,Classpath classpath) {
@@ -78,5 +82,18 @@ public class Main {
         for(String method:classFile.getMethodNames()) {
             System.out.println("method:"+method);;
         }
+    }
+
+    /**
+     * @description 获取main方法
+     * @date 2019-03-13 14:44:57
+     **/
+    public static MemberInfo getMainMehtod(ClassFile classFile) {
+        for (MemberInfo method:classFile.getMethods()) {
+            if (method.toString().equals("main,desc:([Ljava/lang/String;)V")) {
+                return method;
+            }
+        }
+        return null;
     }
 }

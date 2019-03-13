@@ -11,7 +11,7 @@ public class FSTORE extends Index8Instruction {
         frame.getLocalVars().setFloat(index,val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         fstore(frame,this.index);
     }
 }

@@ -11,8 +11,8 @@ import com.vansl.rtdata.LocalVars;
  **/
 public class IINC implements Instruction {
 
-    private int index;         // 局部变量表索引
-    private int constVal;      // 常量
+    public int index;         // 局部变量表索引
+    public int constVal;      // 常量
 
     @Override
     public void fetchOperands(BytecodeReader bytecodeReader) {
@@ -21,7 +21,7 @@ public class IINC implements Instruction {
     }
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         LocalVars localVars = frame.getLocalVars();
         int val = localVars.getInt(index);
         val += constVal;

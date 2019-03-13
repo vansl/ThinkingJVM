@@ -1,5 +1,7 @@
 package com.vansl.instruction.base;
 
+import com.vansl.classfile.ClassReader;
+
 /**
  * @description 封装字节码
  * @date 2019-03-12 19:06:25
@@ -8,7 +10,6 @@ public class BytecodeReader {
 
     private byte[] code;    // 字节码
     private int pc;         // 读取位置指针
-
 
     public void reset(byte[] code,int pc) {
         this.code = code;
@@ -21,22 +22,38 @@ public class BytecodeReader {
         return value;
     }
 
-    public short readInt8() {
-        return (short)code[pc];
+    public byte readInt8() {
+        return code[pc++];
     }
 
     public int readUint16() {
-        short byte1 = readUint8();
-        short byte2 = readUint8();
-        return byte1<<2 | byte2;
+        int num = 0;
+        for (int i= pc ; i < pc+2 ; i++) {
+            num <<= 8;
+            num |= (code[i] & 0xff);
+        }
+        pc += 2;
+        return num;
     }
 
-    public int readInt16() {
-        return 1;
+    public short readInt16() {
+        short s = 0;
+        byte b;
+        for (int i = pc; i < pc+2; i++) {
+            b = code[i];
+            s += (b& 0xFF) << (8 * i);
+        }
+        return s;
     }
 
     public int readInt32() {
-        return 1;
+        int s = 0;
+        byte b;
+        for (int i = pc; i < pc+4; i++) {
+            b = code[i];
+            s += (b& 0xFF) << (8 * i);
+        }
+        return s;
     }
 
     public int[] readInt32s(int n) {
@@ -51,5 +68,9 @@ public class BytecodeReader {
         while (pc%4!=0) {
             readUint8();
         }
+    }
+
+    public int getPc() {
+        return pc;
     }
 }

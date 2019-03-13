@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class POP2 extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         operandStack.popSlot();
         operandStack.popSlot();

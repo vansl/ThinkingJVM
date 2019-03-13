@@ -24,7 +24,7 @@ public class DCMPG extends NoOperandsInstruction {
     }
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         fcmp(frame,true);
     }
 }

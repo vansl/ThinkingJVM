@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class DADD extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         double v2 = operandStack.popDouble();
         double v1 = operandStack.popDouble();

@@ -11,7 +11,7 @@ public class DLOAD extends Index8Instruction {
         frame.getOperandStack().pushDouble(val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         dload(frame,this.index);
     }
 }

@@ -11,8 +11,11 @@ public class Frame {
 
     private LocalVars localVars;        // 局部变量表
     private OperandStack operandStack;  // 操作数栈
+    private Thread thread;              // 所属线程
+    private int nextPC;
 
-    public Frame(int maxLocals,int maxOperandStack) {
+    public Frame(Thread thread,int maxLocals,int maxOperandStack) {
+        this.thread = thread;
         localVars = new LocalVars(maxLocals);
         operandStack = new OperandStack(maxOperandStack);
     }

@@ -11,7 +11,7 @@ public class DSTORE extends Index8Instruction {
         frame.getLocalVars().setDouble(index,val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         dstore(frame,this.index);
     }
 }

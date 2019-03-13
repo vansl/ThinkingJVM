@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class LREG extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         long v1 = operandStack.popLong();
         operandStack.pushLong(-v1);

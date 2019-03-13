@@ -6,7 +6,7 @@ import com.vansl.rtdata.OperandStack;
 
 public class IREG extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         int v1 = operandStack.popInt();
         operandStack.pushInt(-v1);

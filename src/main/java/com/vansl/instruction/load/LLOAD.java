@@ -11,7 +11,7 @@ public class LLOAD extends Index8Instruction {
         frame.getOperandStack().pushLong(val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         lload(frame,this.index);
     }
 }

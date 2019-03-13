@@ -6,7 +6,7 @@ import com.vansl.rtdata.Frame;
 
 public class IF_ICMPLT extends BranchInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         int val2 = frame.getOperandStack().popInt();
         int val1 = frame.getOperandStack().popInt();
         if (val1<val2) {

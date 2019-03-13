@@ -11,7 +11,7 @@ import com.vansl.rtdata.Slot;
  **/
 public class SWAP extends NoOperandsInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         OperandStack operandStack = frame.getOperandStack();
         Slot slot1 = operandStack.popSlot();
         Slot slot2 = operandStack.popSlot();

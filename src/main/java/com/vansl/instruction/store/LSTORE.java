@@ -11,7 +11,7 @@ public class LSTORE extends Index8Instruction {
         frame.getLocalVars().setLong(index,val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         lstore(frame,this.index);
     }
 }

@@ -11,7 +11,7 @@ public class ISTORE extends Index8Instruction {
         frame.getLocalVars().setInt(index,val);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         istore(frame,this.index);
     }
 }

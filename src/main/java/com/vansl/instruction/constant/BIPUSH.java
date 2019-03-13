@@ -18,7 +18,7 @@ public class BIPUSH implements Instruction {
     }
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         int intVal = (int)val;
         frame.getOperandStack().pushInt(intVal);
     }

@@ -12,7 +12,7 @@ public class ASTORE extends Index8Instruction {
         frame.getLocalVars().setRef(index,ref);
     }
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         astore(frame,this.index);
     }
 }

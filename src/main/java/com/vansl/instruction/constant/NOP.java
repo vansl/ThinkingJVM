@@ -10,7 +10,7 @@ import com.vansl.rtdata.Frame;
 public class NOP extends NoOperandsInstruction {
 
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         // do nothing
     }
 }

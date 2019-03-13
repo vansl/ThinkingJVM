@@ -10,7 +10,7 @@ import com.vansl.rtdata.Frame;
  **/
 public class GOTO extends BranchInstruction {
     @Override
-    public void Execute(Frame frame) {
+    public void execute(Frame frame) {
         BranchLogic.branch(frame,offset);
     }
 }
