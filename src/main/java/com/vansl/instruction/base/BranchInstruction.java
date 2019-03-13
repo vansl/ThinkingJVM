@@ -10,7 +10,7 @@ public abstract class BranchInstruction implements Instruction {
 
     @Override
     public void fetchOperands(BytecodeReader bytecodeReader) {
-        // 从字节码中读取一个uint16整数
-        offset = bytecodeReader.readUint16();
+        // 从字节码中读取一个int16整数
+        offset = bytecodeReader.readInt16();
     }
 }

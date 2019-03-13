@@ -59,4 +59,13 @@ public class LocalVars {
     public void setRef(int index,Object ref) {
         slots[index].setRef(ref);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Slot slot:slots) {
+            stringBuilder.append(slot.getNum()+" ");    // 只返回num
+        }
+        return stringBuilder.toString();
+    }
 }

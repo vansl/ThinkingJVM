@@ -5,6 +5,7 @@ import com.vansl.classfile.attribute.CodeAttribute;
 import com.vansl.instruction.InstructionFactory;
 import com.vansl.instruction.base.BytecodeReader;
 import com.vansl.instruction.base.Instruction;
+import com.vansl.instruction.control.GOTO;
 import com.vansl.rtdata.Frame;
 import com.vansl.rtdata.Thread;
 
@@ -24,7 +25,11 @@ public class Interpreter {
         Thread thread = new Thread(MAX_STACK_SIZE);
         Frame frame = new Frame(thread,maxLocals,maxStack);
         thread.pushFrame(frame);
-        loop(thread,bytecode);
+        try {
+            loop(thread,bytecode);
+        } catch (Error e) {
+            System.out.println(frame.getLocalVars().toString());
+        }
     }
 
     public static void loop(Thread thread,byte[] bytecode) {
@@ -40,8 +45,8 @@ public class Interpreter {
             Instruction instruction = InstructionFactory.newInstruction(opcode);
             instruction.fetchOperands(bytecodeReader);
             frame.setNextPC(bytecodeReader.getPc());
-            System.out.println(instruction.getClass());
             // 执行指令
+            System.out.println("pc:"+pc+" "+instruction.getClass());
             instruction.execute(frame);
         }
     }
