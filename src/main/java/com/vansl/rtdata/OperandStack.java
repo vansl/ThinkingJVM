@@ -1,6 +1,6 @@
 package com.vansl.rtdata;
 
-import java.util.Stack;
+import com.vansl.rtdata.heap.Object;
 
 /**
  * @description 操作数栈

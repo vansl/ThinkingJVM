@@ -40,7 +40,6 @@ public class BytecodeReader {
         short s = 0;
         byte b;
         for (int i = pc; i < pc+2; i++) {
-            System.out.println(i);
             b = code[i];
             s |= (b& 0xFF) << (8 * (pc-i+1));
         }
@@ -51,7 +50,6 @@ public class BytecodeReader {
     public int readInt32() {
         int num = 0;
         for (int i = pc; i < pc+4; i++) {
-            System.out.println(i);
             num |= (code[i]& 0xFF) << (8 * (pc-i+1));
         }
         pc += 4;

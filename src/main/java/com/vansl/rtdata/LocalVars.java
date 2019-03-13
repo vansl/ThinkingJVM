@@ -1,5 +1,7 @@
 package com.vansl.rtdata;
 
+import com.vansl.rtdata.heap.Object;
+
 /**
  * @description 局部变量表,boolean、byte、short、char类型转为int处理
  * 只存放数据的值，不存放数据类型，操作数栈同样也是

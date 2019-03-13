@@ -17,11 +17,6 @@ public class ClassFile {
     private int superClass;             // 超类索引，java.lang.Object为0
     private int[] interfaces;           // 接口索引表
     private MemberInfo[] fields;        // 字段表
-
-    public MemberInfo[] getMethods() {
-        return methods;
-    }
-
     private MemberInfo[] methods;       // 方法表
     private AttributeInfo[] attributes; // 属性表
 
@@ -122,6 +117,10 @@ public class ClassFile {
             fieldNames.add(this.fields[i].toString());
         }
         return fieldNames;
+    }
+
+    public MemberInfo[] getMethods() {
+        return methods;
     }
 
     public List<String> getMethodNames() {

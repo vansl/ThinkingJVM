@@ -3,7 +3,7 @@ package com.vansl.instruction.comparison;
 import com.vansl.instruction.base.BranchInstruction;
 import com.vansl.instruction.base.BranchLogic;
 import com.vansl.rtdata.Frame;
-import com.vansl.rtdata.Object;
+import com.vansl.rtdata.heap.Object;
 
 /**
  * @description 把操作数栈顶的两个引用弹出，然后进行比较，满足条件则跳转

@@ -1,5 +1,6 @@
 package com.vansl.rtdata;
 
+import com.vansl.rtdata.heap.Object;
 import lombok.Data;
 
 @Data

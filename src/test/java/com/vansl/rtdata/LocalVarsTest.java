@@ -1,6 +1,8 @@
 package com.vansl.rtdata;
 
 
+import com.vansl.rtdata.heap.Object;
+
 class LocalVarsTest {
 
 

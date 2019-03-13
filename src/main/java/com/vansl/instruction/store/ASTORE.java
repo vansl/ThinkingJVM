@@ -2,7 +2,7 @@ package com.vansl.instruction.store;
 
 import com.vansl.instruction.base.Index8Instruction;
 import com.vansl.rtdata.Frame;
-import com.vansl.rtdata.Object;
+import com.vansl.rtdata.heap.Object;
 
 public class ASTORE extends Index8Instruction {
 

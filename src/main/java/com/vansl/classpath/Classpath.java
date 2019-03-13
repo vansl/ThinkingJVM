@@ -18,7 +18,7 @@ public class Classpath implements Entry{
     public void parseBootAndExtClasspath(String jreOption) {
         String jreDir = getJreDir(jreOption);
         String jreLibPath = Paths.get(jreDir,"lib") + SEP + "*";
-        System.out.println(jreLibPath);
+        System.out.println("jre path:"+jreLibPath);
         bootClasspath = new WildcardEntry(jreLibPath);
         String jreExtPath = Paths.get(jreDir ,"lib","ext") + SEP + "*";;
         extClasspath = new WildcardEntry(jreExtPath);
