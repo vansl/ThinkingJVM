@@ -1,7 +1,7 @@
 package com.vansl.rtdata;
 
 
-import com.vansl.rtdata.heap.Object;
+import com.vansl.rtdata.heap.HeapObject;
 
 class LocalVarsTest {
 
@@ -16,7 +16,7 @@ class LocalVarsTest {
         vars.setLong(4, -2997924580L);
         vars.setFloat(6, 3.1415926f);
         vars.setDouble(7, 2.71828182845);
-        Object object = new Object();
+        HeapObject object = new HeapObject();
         vars.setRef(9, object);
         assert vars.getInt(0) == 100;
         assert vars.getInt(1) == -100;

@@ -1,6 +1,6 @@
 package com.vansl.rtdata;
 
-import com.vansl.rtdata.heap.Object;
+import com.vansl.rtdata.heap.HeapObject;
 
 /**
  * @description 操作数栈
@@ -54,14 +54,14 @@ public class OperandStack {
         pushLong(Double.doubleToLongBits(val));
     }
 
-    public Object popRef() {
+    public HeapObject popRef() {
         size --;
-        Object ref = slots[size].getRef();
+        HeapObject ref = slots[size].getRef();
         slots[size].setRef(null);           // 让垃圾收集器回收对象
         return ref;
     }
 
-    public void pushRef(Object object) {
+    public void pushRef(HeapObject object) {
         slots[size++].setRef(object);
     }
 

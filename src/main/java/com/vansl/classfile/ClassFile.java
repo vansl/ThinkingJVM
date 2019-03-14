@@ -14,7 +14,7 @@ public class ClassFile {
     private ConstantPool constantPool;  // 常量池
     private int accessFlags;            // 类访问标志
     private int thisClass;              // 类索引
-    private int superClass;             // 超类索引，java.lang.Object为0
+    private int superClass;             // 超类索引，java.lang.HeapObject为0
     private int[] interfaces;           // 接口索引表
     private MemberInfo[] fields;        // 字段表
     private MemberInfo[] methods;       // 方法表
@@ -91,7 +91,7 @@ public class ClassFile {
         if(this.superClass>0) {
             return constantPool.getClassName(superClass);
         }
-        // 只有java.lang.Object没有超类
+        // 只有java.lang.HeapObject没有超类
         return "";
     }
 

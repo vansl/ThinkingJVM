@@ -1,7 +1,7 @@
 package com.vansl.rtdata;
 
 
-import com.vansl.rtdata.heap.Object;
+import com.vansl.rtdata.heap.HeapObject;
 
 class OperandStackTest {
 
@@ -15,7 +15,7 @@ class OperandStackTest {
         ops.pushLong(-2997924580L);
         ops.pushFloat(3.1415926f);
         ops.pushDouble(2.71828182845);
-        Object object = new Object();
+        HeapObject object = new HeapObject();
         ops.pushRef(object);
 
         assert ops.popRef() == object;

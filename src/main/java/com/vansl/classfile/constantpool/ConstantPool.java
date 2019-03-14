@@ -15,10 +15,11 @@ public class ConstantPool {
     public static ConstantPool readConstantpool(ClassReader classReader) {
         ConstantPool constantPool = new ConstantPool();
         int constantPoolCount = classReader.readU2();
+        constantPool.constantPoolCount = constantPoolCount;
         constantPool.constantInfos = new ConstantInfo[constantPoolCount];
         for (int i = 1; i < constantPoolCount; i++) {
             short tag = classReader.readU1();
-            ConstantInfo constantInfo = ConstantFactory.newConstant(tag, classReader);
+            ConstantInfo constantInfo = ConstantFactory.newConstant(tag, classReader,constantPool);
             constantPool.constantInfos[i] = constantInfo;
             // long和double占两个索引
             if (tag == ConstantTag.LONG.tag || tag == ConstantTag.DOUBLE.tag) {
@@ -37,14 +38,9 @@ public class ConstantPool {
         return utf8Info.getVal();
     }
 
-    public String getName(int index) {
+    public String[] getNameAndDescriptor(int index) {
         ConstantNameAndTypeInfo nATInfo = (ConstantNameAndTypeInfo)constantInfos[index];
-        return getUtf8(nATInfo.getNameIndex());
-    }
-
-    public String getType(int index) {
-        ConstantNameAndTypeInfo nATInfo = (ConstantNameAndTypeInfo)constantInfos[index];
-        return getUtf8(nATInfo.getDescriptorIndex());
+        return new String[]{getUtf8(nATInfo.getNameIndex()),getUtf8(nATInfo.getDescriptorIndex())};
     }
 
     public String getClassName(int index) {

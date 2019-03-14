@@ -1,5 +1,5 @@
 package com.vansl.rtdata.heap;
 
-public class Object {
+public class HeapObject {
     // TODO
 }

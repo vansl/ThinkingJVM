@@ -7,7 +7,7 @@ import com.vansl.classfile.ClassReader;
  * @description 常量抽象类
  * @date 2019-03-10 12:24:13
  **/
-abstract class ConstantInfo {
+public abstract class ConstantInfo {
 
     private short tag;
 

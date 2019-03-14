@@ -4,7 +4,7 @@ import com.vansl.classfile.ClassReader;
 
 public class ConstantFactory {
 
-    public static ConstantInfo newConstant(short tag,ClassReader classReader) {
+    public static ConstantInfo newConstant(short tag,ClassReader classReader,ConstantPool constantPool) {
         ConstantInfo constantInfo;
         switch (tag) {
             case 3:
@@ -26,16 +26,16 @@ public class ConstantFactory {
                 constantInfo = new ConstantStringInfo();
                 break;
             case 7:
-                constantInfo = new ConstantClassInfo();
+                constantInfo = new ConstantClassInfo(constantPool);
                 break;
             case 9:
-                constantInfo = new ConstantFieldrefInfo();
+                constantInfo = new ConstantFieldrefInfo(constantPool);
                 break;
             case 10:
-                constantInfo = new ConstantMethodrefInfo();
+                constantInfo = new ConstantMethodrefInfo(constantPool);
                 break;
             case 11:
-                constantInfo = new ConstantInterfaceMethodrefInfo();
+                constantInfo = new ConstantInterfaceMethodrefInfo(constantPool);
                 break;
             case 12:
                 constantInfo = new ConstantNameAndTypeInfo();

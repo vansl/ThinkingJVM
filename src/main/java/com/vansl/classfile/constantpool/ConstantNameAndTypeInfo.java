@@ -7,7 +7,7 @@ import com.vansl.classfile.ClassReader;
  * 字段描述符为字段类型的描述符，方法描述符为参数类型描述符+返回值类型描述符
  * @date 2019-03-10 15:03:45
  **/
-class ConstantNameAndTypeInfo extends ConstantInfo{
+public class ConstantNameAndTypeInfo extends ConstantInfo{
 
     private int nameIndex;
     private int descriptorIndex;

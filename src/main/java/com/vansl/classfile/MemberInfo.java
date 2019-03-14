@@ -54,4 +54,16 @@ public class MemberInfo {
         }
         return null;
     }
+
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    public String getName() {
+        return constantPool.getUtf8(nameIndex);
+    }
+
+    public String getDescriptor() {
+        return constantPool.getUtf8(descriptorIndex);
+    }
 }

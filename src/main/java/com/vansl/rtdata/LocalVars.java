@@ -1,6 +1,6 @@
 package com.vansl.rtdata;
 
-import com.vansl.rtdata.heap.Object;
+import com.vansl.rtdata.heap.HeapObject;
 
 /**
  * @description 局部变量表,boolean、byte、short、char类型转为int处理
@@ -54,11 +54,11 @@ public class LocalVars {
         setLong(index,new Double(val).longValue());
     }
 
-    public Object getRef(int index) {
+    public HeapObject getRef(int index) {
         return slots[index].getRef();
     }
 
-    public void setRef(int index,Object ref) {
+    public void setRef(int index,HeapObject ref) {
         slots[index].setRef(ref);
     }
 
