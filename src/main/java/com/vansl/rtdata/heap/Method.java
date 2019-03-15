@@ -21,26 +21,6 @@ public class Method extends ClassMember {
         return methods;
     }
 
-    public boolean isPublic() {
-        return (accessFlags&AccessFlags.ACC_PUBLIC.getFlag()) != 0;
-    }
-
-    public boolean isPrivate() {
-        return (accessFlags&AccessFlags.ACC_PRIVATE.getFlag()) != 0;
-    }
-
-    public boolean isProtected() {
-        return (accessFlags&AccessFlags.ACC_PROTECTED.getFlag()) != 0;
-    }
-
-    public boolean isStatic() {
-        return (accessFlags&AccessFlags.ACC_STATIC.getFlag()) != 0;
-    }
-
-    public boolean isFinal() {
-        return (accessFlags&AccessFlags.ACC_FINAL.getFlag()) != 0;
-    }
-
     public boolean isSynchronized() {
         return (accessFlags&AccessFlags.ACC_SYNCHRONIZED.getFlag()) != 0;
     }

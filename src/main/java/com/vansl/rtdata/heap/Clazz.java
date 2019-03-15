@@ -39,6 +39,18 @@ public class Clazz {
         methods = Method.newMethods(this, classFile.getMethods());
     }
 
+    public boolean isAccessibleTo(Clazz otherClass) {
+        return isPublic() || getPackageName().equals(otherClass.getPackageName());
+    }
+
+    public String getPackageName() {
+        int lastIndex = className.lastIndexOf('/');
+        if (lastIndex!=-1) {
+            return className.substring(0,lastIndex);
+        }
+        return "";
+    }
+
     public boolean isPublic() {
         return (accessFlags&AccessFlags.ACC_PUBLIC.getFlag()) != 0;
     }
