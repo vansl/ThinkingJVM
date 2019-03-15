@@ -16,6 +16,8 @@ public class ClassFile {
     private int thisClass;              // 类索引
     private int superClass;             // 超类索引，java.lang.HeapObject为0
     private int[] interfaces;           // 接口索引表
+
+
     private MemberInfo[] fields;        // 字段表
     private MemberInfo[] methods;       // 方法表
     private AttributeInfo[] attributes; // 属性表
@@ -105,6 +107,10 @@ public class ClassFile {
             interfaceNames.add(constantPool.getClassName(this.interfaces[i]));
         }
         return interfaceNames;
+    }
+
+    public MemberInfo[] getFields() {
+        return fields;
     }
 
     /**

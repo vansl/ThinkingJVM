@@ -2,6 +2,10 @@ package com.vansl.rtdata.heap;
 
 import com.vansl.classfile.constantpool.ConstantMemberrefInfo;
 
+/**
+ * @description 字段/方法符号引用
+ * @date 2019-03-14 23:26:25
+ **/
 public class MemberRef extends SymRef {
 
     String name;

@@ -1,7 +1,6 @@
 package com.vansl.rtdata.heap;
 
 import com.vansl.classfile.ClassFile;
-import com.vansl.classfile.constantpool.ConstantPool;
 
 /**
  * @author: vansl
@@ -10,19 +9,19 @@ import com.vansl.classfile.constantpool.ConstantPool;
  */
 public class Clazz {
 
-    private int accessFlags;            // 类访问标志
-    private String className;           // 类名
-    private String superClassName;      // 超类名
-    private String[] interfaceNames;    // 接口名
-    private ConstantPool constantPool;  // 运行时常量池引用
-    private Field[] fields;             // 字段表
-    private Method[] methods;           // 方法表
-//    private ClassLoader classLoader;    // 类加载器引用
+    private int accessFlags;                    // 类访问标志
+    private String className;                   // 类名
+    private String superClassName;              // 超类名
+    private String[] interfaceNames;            // 接口名
+    private RuntimeConstantPool constantPool;   // 运行时常量池引用
+    private Field[] fields;                     // 字段表
+    private Method[] methods;                   // 方法表
+//    private ClassLoader classLoader;          // 类加载器引用
     private Clazz superClass;
     private Clazz[] interfaces;
-    private int staticSlotCount;        // 类变量空间大小
-    private int instanceSlotCount;      // 实例变量空间大小
-//    private Slots staticVars;         // 静态变量
+    private int staticSlotCount;                // 类变量空间大小
+    private int instanceSlotCount;              // 实例变量空间大小
+//    private Slots staticVars;                 // 静态变量
 
     /**
      * @description 把class file转换成clazz对象
@@ -33,9 +32,9 @@ public class Clazz {
         className = classFile.getClassName();
         superClassName = classFile.getSuperClassName();
         interfaceNames = (String[]) classFile.getInterfaceNames().toArray();
-//        clazz.constantPool = newConstantPool(clazz, cf.ConstantPool())
-//        class.fields = newFields(clazz, cf.Fields())
-//        clazz.methods = newMethods(clazz, cf.Methods()) // 见
+        constantPool = new RuntimeConstantPool(this, classFile.getConstantPool());
+        fields = Field.newFields(this, classFile.getFields());
+        methods = Method.newMethods(this, classFile.getMethods());
     }
 
     public boolean isPublic() {
