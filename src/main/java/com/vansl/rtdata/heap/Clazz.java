@@ -1,12 +1,14 @@
 package com.vansl.rtdata.heap;
 
 import com.vansl.classfile.ClassFile;
+import lombok.Data;
 
 /**
  * @author: vansl
  * 放进方法区内的类
  * @create: 19-3-14 上午1:58
  */
+@Data
 public class Clazz {
 
     private int accessFlags;                    // 类访问标志
@@ -16,7 +18,7 @@ public class Clazz {
     private RuntimeConstantPool constantPool;   // 运行时常量池引用
     private Field[] fields;                     // 字段表
     private Method[] methods;                   // 方法表
-//    private ClassLoader classLoader;          // 类加载器引用
+    private ClassLoader classLoader;          // 类加载器引用
     private Clazz superClass;
     private Clazz[] interfaces;
     private int staticSlotCount;                // 类变量空间大小
@@ -68,4 +70,5 @@ public class Clazz {
     public boolean isEnum() {
         return (accessFlags & AccessFlags.ACC_ENUM.getFlag()) != 0;
     }
+
 }
