@@ -100,6 +100,92 @@ public class ClassLoader {
     }
 
     public void prepare(Clazz clazz){
-        // todo
+        calcInstanceFieldSlotIds(clazz);
+        calcStaticFieldSlotIds(clazz);
+        allocAndInitStaticVars(clazz);
+    }
+
+    /**
+     * @description 计算实例字段的个数并编号
+     * @date 2019-03-15 16:45:19
+     **/
+    public void calcInstanceFieldSlotIds(Clazz clazz) {
+        int slotId = 0;
+        if (clazz.getSuperClass()!= null){
+            slotId = clazz.getSuperClass().getInstanceSlotCount();
+        }
+        for (Field field:clazz.getFields()) {
+            if (!field.isStatic()) {
+                field.setSlotId(slotId);
+                slotId ++;
+                // double和long占两个位置
+                if (field.descriptor=="J"||field.descriptor=="D") {
+                    slotId ++;
+                }
+            }
+        }
+        clazz.setInstanceSlotCount(slotId);
+    }
+
+    /**
+     * @description 计算类字段的个数并编号
+     * @date 2019-03-15 16:45:19
+     **/
+    public void calcStaticFieldSlotIds(Clazz clazz) {
+        int slotId = 0;
+        for (Field field:clazz.getFields()) {
+            if (field.isStatic()) {
+                field.setSlotId(slotId);
+                slotId ++;
+                // double和long占两个位置
+                if (field.descriptor=="J"||field.descriptor=="D") {
+                    slotId ++;
+                }
+            }
+        }
+        clazz.setStaticSlotCount(slotId);
+    }
+
+    /**
+     * @description 给类变量分配空间并赋予初值
+     * @date 2019-03-15 16:48:37
+     **/
+    public void allocAndInitStaticVars(Clazz clazz) {
+        clazz.setStaticVars(new Slots(clazz.getStaticSlotCount()));
+        for (Field field:clazz.getFields()) {
+            // 无需处理非final变量，Java荟自动赋初值
+            if (field.isStatic() && field.isFinal()) {
+                initStaticFinalVar(clazz, field);
+            }
+        }
+    }
+
+    public void initStaticFinalVar(Clazz clazz, Field field) {
+        Slots vars = clazz.getStaticVars();
+        RuntimeConstantPool cp = clazz.getConstantPool();
+        int cpIndex = field.getConstValueIndex();
+        int slotId = field.getSlotId();
+        if (cpIndex > 0) {
+            switch (field.descriptor) {
+                case "Z":
+                case "B":
+                case "C":
+                case "S":
+                case "I":
+                    vars.setInt(slotId, (int)cp.getConstant(cpIndex));
+                    break;
+                case "J":
+                    vars.setLong(slotId, (long)cp.getConstant(cpIndex));
+                    break;
+                case "F":
+                    vars.setFloat(slotId, (float)cp.getConstant(cpIndex));
+                    break;
+                case "D":
+                    vars.setDouble(slotId, (float)cp.getConstant(cpIndex));
+                    break;
+                case "Ljava/lang/String;":
+                    System.exit(1); // TODO
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ public class RuntimeConstantPool {
     public RuntimeConstantPool(Clazz clazz, ConstantPool cfConstantPool) {
         int cpCount = cfConstantPool.getConstantPoolCount();
         this.clazz = clazz;
+        constants = new Object[cpCount];
         // 索引0为无效索引
         for (int i=1;i<cpCount;i++) {
             ConstantInfo constantInfo = cfConstantPool.getConstantInfo(cpCount);
@@ -47,22 +48,21 @@ public class RuntimeConstantPool {
             if (constantInfo instanceof ConstantClassInfo) {
                 constants[i] = new ClassRef(this,(ConstantClassInfo) constantInfo);
             }
-//            if (constantInfo instanceof ConstantFieldrefInfo) {
-//                todo
-//            }
-//            if (constantInfo instanceof ConstantMethodrefInfo) {
-//                todo
-//            }
-//            if (constantInfo instanceof ConstantMethodrefInfo) {
-//                todo
-//            }
+            if (constantInfo instanceof ConstantFieldrefInfo) {
+                constants[i] = new FieldRef(this,(ConstantFieldrefInfo)constantInfo);
+            }
+            if (constantInfo instanceof ConstantMethodrefInfo) {
+                constants[i] = new MethodRef(this,(ConstantMethodrefInfo)constantInfo);
+            }
+            if (constantInfo instanceof ConstantInterfaceMethodrefInfo) {
+                constants[i] = new InterfaceMethodRef(this,(ConstantInterfaceMethodrefInfo) constantInfo);
+            }
         }
-        this.constants = constants;
     }
 
-    public HeapObject getConstant(int index) {
+    public Object getConstant(int index) {
         if (constants[index]!=null) {
-//            return constants[index];
+            return constants[index];
         }
         throw new Error("No constants at "+index);
     }

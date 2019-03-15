@@ -2,6 +2,7 @@ package com.vansl.classfile;
 
 import com.vansl.classfile.attribute.AttributeInfo;
 import com.vansl.classfile.attribute.CodeAttribute;
+import com.vansl.classfile.attribute.ConstantValueAttribute;
 import com.vansl.classfile.constantpool.ConstantPool;
 
 /**
@@ -65,5 +66,18 @@ public class MemberInfo {
 
     public String getDescriptor() {
         return constantPool.getUtf8(descriptorIndex);
+    }
+
+    /**
+     * @description 获取常量值
+     * @date 2019-03-15 17:26:40
+     **/
+    public ConstantValueAttribute getConstantValueAttribute(){
+        for (AttributeInfo attrInfo:attributes) {
+            if (attrInfo instanceof ConstantValueAttribute) {
+                return (ConstantValueAttribute)attrInfo;
+            }
+        }
+        return null;
     }
 }

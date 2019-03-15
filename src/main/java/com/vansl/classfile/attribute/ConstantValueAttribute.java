@@ -6,7 +6,7 @@ import com.vansl.classfile.ClassReader;
  * @description 用于表示常量表达式的值
  * @date 2019-03-10 19:38:02
  **/
-class ConstantValueAttribute extends AttributeInfo {
+public class ConstantValueAttribute extends AttributeInfo {
 
     private int constantValueIndex;
 

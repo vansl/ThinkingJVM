@@ -18,12 +18,12 @@ public class Clazz {
     private RuntimeConstantPool constantPool;   // 运行时常量池引用
     private Field[] fields;                     // 字段表
     private Method[] methods;                   // 方法表
-    private ClassLoader classLoader;          // 类加载器引用
+    private ClassLoader classLoader;            // 类加载器引用
     private Clazz superClass;
     private Clazz[] interfaces;
     private int staticSlotCount;                // 类变量空间大小
     private int instanceSlotCount;              // 实例变量空间大小
-//    private Slots staticVars;                 // 静态变量
+    private Slots staticVars;                   // 静态变量
 
     /**
      * @description 把class file转换成clazz对象
