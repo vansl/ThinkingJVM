@@ -2,11 +2,13 @@ package com.vansl.rtdata.heap;
 
 import com.vansl.classfile.ClassFile;
 import com.vansl.classfile.MemberInfo;
+import lombok.Data;
 
 /**
  * @description 字段/方法
  * @date 2019-03-14 14:04:29
  **/
+@Data
 public class ClassMember {
 
     int accessFlags;

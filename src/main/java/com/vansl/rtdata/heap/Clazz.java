@@ -39,6 +39,10 @@ public class Clazz {
         methods = Method.newMethods(this, classFile.getMethods());
     }
 
+    public HeapObject newObject() {
+        return new HeapObject(this);
+    }
+
     public boolean isAccessibleTo(Clazz otherClass) {
         return isPublic() || getPackageName().equals(otherClass.getPackageName());
     }

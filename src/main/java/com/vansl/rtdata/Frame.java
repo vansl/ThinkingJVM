@@ -1,5 +1,6 @@
 package com.vansl.rtdata;
 
+import com.vansl.rtdata.heap.Method;
 import lombok.Data;
 
 /**
@@ -13,10 +14,11 @@ public class Frame {
     private OperandStack operandStack;  // 操作数栈
     private Thread thread;              // 所属线程
     private int nextPC;
+    private Method method;              // 当前类的运行时常量池
 
-    public Frame(Thread thread,int maxLocals,int maxOperandStack) {
+    public Frame(Thread thread,Method method) {
         this.thread = thread;
-        localVars = new LocalVars(maxLocals);
-        operandStack = new OperandStack(maxOperandStack);
+        localVars = new LocalVars(method.);
+        operandStack = new OperandStack(method.);
     }
 }
