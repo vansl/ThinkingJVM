@@ -12,4 +12,8 @@ public class HeapObject {
         this.clazz = clazz;
         this.fields = new Slots(clazz.getInstanceSlotCount());
     }
+
+    public IsInstanceOf(class *Class) bool {
+        return class.isAssignableFrom(self.class)
+    }
 }
